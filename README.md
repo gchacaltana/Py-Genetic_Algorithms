@@ -1,7 +1,8 @@
-# Implementación de un algortimo genético en python
+# Implementación de un algoritmo genético en python
 
 ## Problema: 
-Implementar un algoritmo de optimización que encuentre e imprima la siguiente frase: *"chaymantaqa ripusaqmi , hanaymanpas uraymanpas , wayra hina muyurispay , mayu hina qaparispay"*
+Implementar un algoritmo de optimización que encuentre e imprima la siguiente frase: 
+*"chaymantaqa ripusaqmi , hanaymanpas uraymanpas , wayra hina muyurispay , mayu hina qaparispay"*
 
 ## Ejecución
 
