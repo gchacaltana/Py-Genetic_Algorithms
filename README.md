@@ -1,6 +1,7 @@
 # Implementación de un algortimo genético en python
 
-## Problema: implementar un algoritmo de optimización que encuentre e imprima la siguiente frase: "chaymantaqa ripusaqmi , hanaymanpas uraymanpas , wayra hina muyurispay , mayu hina qaparispay"
+## Problema: 
+Implementar un algoritmo de optimización que encuentre e imprima la siguiente frase: *"chaymantaqa ripusaqmi , hanaymanpas uraymanpas , wayra hina muyurispay , mayu hina qaparispay"*
 
 ## Ejecución
 
@@ -22,8 +23,8 @@ Cuando se ejecuta el programa, se solicitará ingresar la siguiente información
 
 ## Resultado
 
-    ![Resultado de ejecución](http://www.solocodigoweb.com/wp-content/uploads/2019/11/python-algoritmo-genetico-solocodigoweb.jpg)
+![Resultado de ejecución](http://www.solocodigoweb.com/wp-content/uploads/2019/11/python-algoritmo-genetico-solocodigoweb.jpg)
 
 ## Resultado del problema
 
-    ![Resultado de búsqueda: "chaymantaqa ripusaqmi , hanaymanpas uraymanpas , wayra hina muyurispay , mayu hina qaparispay"](http://www.solocodigoweb.com/wp-content/uploads/2019/11/python-algoritmo-genetico-resultado-ejecucion-programa.jpg)
+![Resultado de búsqueda: "chaymantaqa ripusaqmi , hanaymanpas uraymanpas , wayra hina muyurispay , mayu hina qaparispay"](http://www.solocodigoweb.com/wp-content/uploads/2019/11/python-algoritmo-genetico-resultado-ejecucion-programa.jpg)
