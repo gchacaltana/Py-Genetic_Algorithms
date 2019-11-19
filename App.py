@@ -5,6 +5,7 @@ __author__ = "Gonzalo Chacaltana Buleje"
 __email__ = "gchacaltanab@gmail.com"
 
 import sys
+from random import randint
 from Individual import Individual
 
 
@@ -37,7 +38,7 @@ class App(object):
 
     def inputPopulation(self):
         self.numberPopulation = int(
-            input("Ingrese poblacion total de individuos [100 a 300]: "))
+            input("Ingrese cantidad de individuos por poblacion [100 a 300]: "))
         if (self.numberPopulation == 0):
             raise Exception(
                 "Exception: La poblacion de individuos es invalida!")
@@ -60,18 +61,50 @@ class App(object):
 
     def executeGeneticAlgorithm(self):
         for _ in range(0, self.numberPopulation):
-            self.populations.append(Individual(
-                len(self.objetive), self.objetive))
-        generation = 0
+            individual = Individual()
+            individual.generateGenes(len(self.objetive), self.objetive)
+            self.populations.append(individual)
+        self.generation = 0
         print("Buscando mejor individuo....")
         while True:
-            generation += 1
-            print("\n*************** GENERACION %s\n" % generation)
-            for _ in range(0, self.numberPopulation):
-                print("Generacion[%s] | Individuo[%s]: %s | fitness: %s" % (
-                    generation, _, self.populations[_].getPhenotype(), self.populations[_].getFitness()))
-            if generation == 2:
+            self.evaluateMembersGeneration()
+            self.selectMembersGeneration()
+            self.reproductionMembersGeneration()
+
+    def evaluateMembersGeneration(self):
+        self.generation += 1
+        print("\n*************** GENERACION %s\n" % self.generation)
+        for _ in range(0, self.numberPopulation):
+            print("Generacion[%s] | Individuo[%s]: %s | fitness: %s" % (
+                self.generation, _, self.populations[_].getPhenotype(), self.populations[_].getFitness()))
+            if (self.evaluateObjetive(self.populations[_])):
                 sys.exit()
+
+    def selectMembersGeneration(self):
+        self.parents = []
+        for _ in range(0, self.numberPopulation):
+            n = int(self.populations[_].getFitness()*100)
+            #for j in range(0, n):
+            if n>0:
+                self.parents.append(self.populations[_])
+
+    def reproductionMembersGeneration(self):
+        totalParents = len(self.parents)
+        print("Padres seleccionados: ", totalParents)
+        for i in range(0, self.numberPopulation):
+            a = int(randint(0, (totalParents-1)))
+            b = int(randint(0, (totalParents-1)))
+            father = self.parents[a]
+            mother = self.parents[b]
+            children = father.cross(mother)
+            children.mutate(self.rateMutation)
+            self.populations[i] = children
+
+    def evaluateObjetive(self, individual):
+        if (individual.getFitness() == 1.0):
+            print("Objetivo encontrado: %s" % individual.getPhenotype())
+            return True
+        return False
 
     def showIndividualPhenotype(self):
         for j in range(0, self.numberPopulation):
