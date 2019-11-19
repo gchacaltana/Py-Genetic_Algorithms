@@ -27,7 +27,7 @@ class App(object):
         self.inputRateMutation()
 
     def inputObjetive(self):
-        self.objetive=input("Ingrese el texto objetivo: ")
+        self.objetive = input("Ingrese el texto objetivo: ")
         if (len(self.objetive) == 0):
             raise Exception("Exception: El objetivo no fue ingresado!")
         if (len(self.objetive) < self.minLengthObjetive):
@@ -36,7 +36,7 @@ class App(object):
             raise Exception("Exception: El objetivo es muy extenso!")
 
     def inputPopulation(self):
-        self.numberPopulation=int(
+        self.numberPopulation = int(
             input("Ingrese poblacion total de individuos [100 a 300]: "))
         if (self.numberPopulation == 0):
             raise Exception(
@@ -49,20 +49,35 @@ class App(object):
                 "Exception: La poblacion de individuos es muy extensa!")
 
     def inputRateMutation(self):
-        self.rateMutation=float(input("Ingrese la tasa de mutacion [0 a 1]: "))
+        self.rateMutation = float(
+            input("Ingrese la tasa de mutacion [0 a 1]: "))
         if (self.rateMutation < self.minRateMutation):
             raise Exception(
                 "Exception: La tasa de mutacion no puede ser menor de %s" % self.minRateMutation)
         if (self.rateMutation > self.maxRateMutation):
             raise Exception(
                 "Exception: La tasa de mutacion no puede ser mayor de %s" % self.maxRateMutation)
-    
+
     def executeGeneticAlgorithm(self):
-        for _ in range(1, (self.numberPopulation + 1)):
-            self.populations.append(Individual(len(self.objetive), self.objetive))
-        
-        for j in range(1,5):
-            print("Individuo %s : %s" % (j,self.populations[j].getPhenotype()))
+        for _ in range(0, self.numberPopulation):
+            self.populations.append(Individual(
+                len(self.objetive), self.objetive))
+        generation = 0
+        print("Buscando mejor individuo....")
+        while True:
+            generation += 1
+            print("\n*************** GENERACION %s\n" % generation)
+            for _ in range(0, self.numberPopulation):
+                print("Generacion[%s] | Individuo[%s]: %s | fitness: %s" % (
+                    generation, _, self.populations[_].getPhenotype(), self.populations[_].getFitness()))
+            if generation == 2:
+                sys.exit()
+
+    def showIndividualPhenotype(self):
+        for j in range(0, self.numberPopulation):
+            print("Individuo %s : %s" %
+                  (j, self.populations[j].getPhenotype()))
+
 
 if __name__ == "__main__":
     try:

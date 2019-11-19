@@ -15,9 +15,17 @@ class Individual(object):
         self.minNumberChar = 32
         self.maxNumberChar = 128
         self.genes = []
-        for _ in range(1, (self.numberGenes + 1)):
-            self.genes.append(chr(randint(self.minNumberChar, self.maxNumberChar)))
+        for _ in range(0, self.numberGenes):
+            n = randint(self.minNumberChar, self.maxNumberChar)
+            self.genes.append(chr(n))
     
     def getPhenotype(self):
-        return ''.join(self.genes)
+        return ''.join(self.genes).encode("utf-8")
 
+    def getFitness(self):
+        score = 0
+        for i in range(0, len(self.genes)):
+            if self.genes[i]==self.objetive[i]:
+                score+=1
+        return float(score)/float(len(self.objetive))
+    
