@@ -1,31 +1,27 @@
-# Implementación de un algoritmo genético en python
+# Implementation of a genetic algorithm in python
 
-## Problema: 
-Implementar un algoritmo de optimización que encuentre e imprima la siguiente frase: 
-*"chaymantaqa ripusaqmi , hanaymanpas uraymanpas , wayra hina muyurispay , mayu hina qaparispay"*
+## Problem description: 
+Implement an optimization algorithm that finds and prints the following sentence: 
+*"Individuals and interactions over processes and tools"*
 
-## Ejecución
+## Execution
 
     $> python App.py
 
-## Valores de entrada del programa
+## Program Input Values
 
-Cuando se ejecuta el programa, se solicitará ingresar la siguiente información
+When the program is executed, it is requested to enter the following information
 
-    $> Ingrese el texto objetivo: 
-    $> Ingrese cantidad de individuos por población [100 a 300]: 
-    $> Ingrese la tasa de mutación [0 a 1]: 
+    $> Enter the target text: 
+    $> Enter number of individuals per population [100 to 300]: 
+    $> Enter the mutation rate [0 to 1]: 
 
-## Ejemplo de uso
+## Example
 
-    $> Ingrese el texto objetivo: Gonzalo Chacaltana Buleje
-    $> Ingrese cantidad de individuos por población [100 a 300]: 250
-    $> Ingrese la tasa de mutación [0 a 1]: 0.85
+    $> Enter the target text: Individuals and interactions over processes and tools 
+    $> Enter number of individuals per population [100 to 300]: 250
+    $> Enter the mutation rate [0 to 1]: 0.85
 
-## Resultado
+## Result
 
-![Resultado de ejecución](http://www.solocodigoweb.com/wp-content/uploads/2019/11/python-algoritmo-genetico-solocodigoweb.jpg)
-
-## Resultado del problema
-
-![Resultado de búsqueda: "chaymantaqa ripusaqmi , hanaymanpas uraymanpas , wayra hina muyurispay , mayu hina qaparispay"](http://www.solocodigoweb.com/wp-content/uploads/2019/11/python-algoritmo-genetico-resultado-ejecucion-programa.jpg)
+## Problem Result
